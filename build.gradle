@@ -1,0 +1,41 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName = 'demo'
+	version = '0.0.1-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-data-rest')
+	compile('org.springframework.boot:spring-boot-starter-jdbc')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-web-services')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile group: 'org.hsqldb', name: 'hsqldb', version: '2.3.4'
+        compile group: 'org.springframework', name: 'spring-tx', version: '4.3.5.RELEASE'
+       compile group: 'org.springframework', name: 'spring-aop', version: '4.3.5.RELEASE'
+	compile group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.1.1'
+	compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
+
+}
